@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    
+}
+
+.left_side {
+    display: flex;
+    flex-direction: column;
+}
+
+.right_side {
+    display: flex;
+    flex-direction: column;
+}
+
