@@ -1,4 +1,6 @@
+from crypt import methods
 import imp
+from re import A
 from flask_app.models.author import Author
 from flask_app.models.book import Book
 from flask_app.config import mysqlconnection
@@ -25,7 +27,16 @@ def author_favs(id):
     data = {
         "id": id
     }
-    #get all of current author's favorite books
-
+    #identify author 
+    author = Author.get_all
     #populate the select form with all other books available
-    return render_template('show_author.html', author_favorites=Author.get_favs(data), all_books = Book.get_all())
+    return render_template('show_author.html', author = author, author_favorites=Author.get_favs(data), all_books = Book.get_all())
+
+@app.route('/author/process/<int:id>', methods=['POST'])
+def add_author_favs(id):
+    #set data to needed data -- id
+    data = {
+        "id": id
+    }
+    Author.get_favs(data)
+    return redirect('/author/<int:id>')

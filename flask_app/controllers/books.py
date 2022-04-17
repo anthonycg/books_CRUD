@@ -1,4 +1,4 @@
-from flask_app.models.book import Book
+from flask_app.models import book
 from flask_app.config import mysqlconnection
 from flask import render_template, flash, request, session, redirect
 from flask_app import app
