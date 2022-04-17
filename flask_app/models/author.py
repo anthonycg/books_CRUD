@@ -36,3 +36,9 @@ class Author:
         for fav_book in results:
             fav_books.append(cls(fav_book))
         return fav_books
+
+    @classmethod
+    def save_fav(cls, data):
+        query = "INSERT INTO favorite_books (author_id, book_id) VALUES (%(author_id)s, %(book_id)s)"
+        results = connectToMySQL('books').query_db(query, data)
+        return results

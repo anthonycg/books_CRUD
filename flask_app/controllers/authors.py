@@ -28,7 +28,8 @@ def author_favs(id):
         "id": id
     }
     #identify author 
-    author = Author.get_all
+    author = Author.get_all()
+    Author.get_favs(data)
     #populate the select form with all other books available
     return render_template('show_author.html', author = author, author_favorites=Author.get_favs(data), all_books = Book.get_all())
 
@@ -36,7 +37,9 @@ def author_favs(id):
 def add_author_favs(id):
     #set data to needed data -- id
     data = {
-        "id": id
+        "id": id,
+        "author_id": author_id,
+        "book_id": request.form['book_id']
     }
-    Author.get_favs(data)
+    Author.save_fav(data)
     return redirect('/author/<int:id>')

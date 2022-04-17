@@ -31,7 +31,7 @@
         </div>
         <div class="col">
             <h2>Add Author's Favorites</h2>
-            <form action="'/author/process/{{author.id}}" method="post">
+            <form action="/author/process/{{author.id}}" method="post">
                 <select name="title" id="title">
                     {% for title in all_books %}
                     <option value="{{title.id}}">{{title.title}}</option>
