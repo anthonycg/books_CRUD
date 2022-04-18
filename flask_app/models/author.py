@@ -1,6 +1,7 @@
 
 # from unittest import result
-
+from flask_bcrypt import Bcrypt
+bcrypt = Bcrypt(app)
 from flask_app.config.mysqlconnection import connectToMySQL
 
 
