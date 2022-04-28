@@ -31,7 +31,8 @@ class Author:
 
     @classmethod
     def get_favs(cls, data):
-        query= "SELECT * FROM authors LEFT JOIN favorite_books ON favorite_books.author_id = authors.id WHERE authors.id = %(id)s"
+        query= "SELECT * FROM authors LEFT JOIN favorite_books ON favorite_books.author_id = authors.id where\
+        LEFT JOIN books ON favorite_books.book_id = books.id where authors.id = %(id)s"
         results = connectToMySQL('books').query_db(query, data)
         fav_books = []
         print("hello+++++", results)
